@@ -23,7 +23,7 @@ dependencies = [
 ]
 
 # Change this with the version number bump.
-version = "0.0.1"
+version = "0.0.2"
 
 [tool.setuptools]
 package-dir = {"" = "."}
@@ -54,6 +54,5 @@ disable_error_code = ["import-untyped"]
 
 
 [project.scripts]
-youtube-sync = "youtube_sync.cli.sync_one:main"
-youtube-sync-all = "youtube_sync.cli.sync_multiple:main"
+potoken-generator = "potoken_generator.main:main_oneshot"
 

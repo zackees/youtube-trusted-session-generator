@@ -101,7 +101,7 @@ class PotokenExtractor:
             logger.info('update started')
             self._extraction_done.clear()
             try:
-                browser = await nodriver.start(headless=False,
+                browser = await nodriver.start(headless=True,
                                                browser_executable_path=self.browser_path,
                                                user_data_dir=self.profile_path)
             except FileNotFoundError as e:

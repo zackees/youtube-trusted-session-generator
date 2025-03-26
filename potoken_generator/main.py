@@ -96,3 +96,7 @@ def main() -> None:
                     browser_path=args.chrome_path
                     )
     loop.run_until_complete(main_task)
+
+def main_oneshot() -> None:
+    sys.argv.append("--oneshot")
+    main()
