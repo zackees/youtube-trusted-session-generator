@@ -7,6 +7,7 @@ from dataclasses import dataclass
 from pathlib import Path
 from tempfile import mkdtemp
 from typing import Optional
+import os
 
 import nodriver
 
@@ -100,8 +101,9 @@ class PotokenExtractor:
         async with self._ongoing_update:
             logger.info('update started')
             self._extraction_done.clear()
+            headless = os.environ.get('POTOKEN_HEADLESS', '1') == '1'
             try:
-                browser = await nodriver.start(headless=True,
+                browser = await nodriver.start(headless=headless,
                                                browser_executable_path=self.browser_path,
                                                user_data_dir=self.profile_path)
             except FileNotFoundError as e:
