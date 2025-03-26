@@ -102,8 +102,10 @@ class PotokenExtractor:
             logger.info('update started')
             self._extraction_done.clear()
             headless = os.environ.get('POTOKEN_HEADLESS', '1') == '1'
+            sandbox = os.environ.get('POTOKEN_SANDBOX', '1') == '1'
             try:
                 browser = await nodriver.start(headless=headless,
+                                               sandbox=sandbox,
                                                browser_executable_path=self.browser_path,
                                                user_data_dir=self.profile_path)
             except FileNotFoundError as e:
